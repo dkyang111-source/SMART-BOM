@@ -1,0 +1,269 @@
+Here's the HTML conversion of your React code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React to HTML Conversion</title>
+  <!-- Include Lucide icons (you'll need to download these or use a CDN) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* Basic styling to match React components */
+    .flex { display: flex; }
+    .flex-col { flex-direction: column; }
+    .items-center { align-items: center; }
+    .justify-center { justify-content: center; }
+    .justify-between { justify-content: space-between; }
+    .gap-1 { gap: 0.25rem; }
+    .gap-3 { gap: 0.75rem; }
+    .gap-4 { gap: 1rem; }
+    .w-full { width: 100%; }
+    .h-48 { height: 12rem; }
+    .w-32 { width: 8rem; }
+    .h-32 { height: 8rem; }
+    .relative { position: relative; }
+    .absolute { position: absolute; }
+    .mt-2 { margin-top: 0.5rem; }
+    .mt-4 { margin-top: 1rem; }
+    .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+    .py-2.5 { padding-top: 0.625rem; padding-bottom: 0.625rem; }
+    .rounded-lg { border-radius: 0.5rem; }
+    .border { border-width: 1px; }
+    .text-sm { font-size: 0.875rem; }
+    .text-xs { font-size: 0.75rem; }
+    .font-bold { font-weight: 700; }
+    .font-medium { font-weight: 500; }
+    .text-slate-100 { color: #f1f5f9; }
+    .text-slate-300 { color: #cbd5e1; }
+    .text-slate-400 { color: #94a3b8; }
+    .text-slate-500 { color: #64748b; }
+    .text-slate-800 { color: #1e293b; }
+    .text-slate-900 { color: #0f172a; }
+    .text-blue-500 { color: #3b82f6; }
+    .text-blue-600 { color: #2563eb; }
+    .text-red-500 { color: #ef4444; }
+    .bg-white { background-color: #ffffff; }
+    .bg-slate-100 { background-color: #f1f5f9; }
+    .bg-blue-600 { background-color: #2563eb; }
+    .border-slate-200 { border-color: #e2e8f0; }
+    .border-slate-300 { border-color: #cbd5e1; }
+    .hover\:bg-slate-800:hover { background-color: #1e293b; }
+    .hover\:text-white:hover { color: #ffffff; }
+    .transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+    .transition-colors { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+    .duration-200 { transition-duration: 200ms; }
+    .duration-1000 { transition-duration: 1000ms; }
+    .ease-out { transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+    .shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+    .whitespace-nowrap { white-space: nowrap; }
+    .uppercase { text-transform: uppercase; }
+    .tracking-wider { letter-spacing: 0.05em; }
+    .rounded-full { border-radius: 9999px; }
+    .hover\:r-6:hover { r: 6; }
+    .cursor-not-allowed { cursor: not-allowed; }
+    .outline-none { outline: 2px solid transparent; outline-offset: 2px; }
+    .focus\:border-blue-500:focus { border-color: #3b82f6; }
+    .focus\:ring-2:focus { box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); }
+    .focus\:ring-blue-100:focus { box-shadow: 0 0 0 2px rgba(191, 219, 254, 0.5); }
+    .placeholder-slate-400::placeholder { color: #94a3b8; }
+    .transform { transform: translate(0, 0); }
+    .-rotate-90 { transform: rotate(-90deg); }
+    .overflow-visible { overflow: visible; }
+  </style>
+</head>
+<body>
+  <!-- Simple Line Chart Component -->
+  <div id="simple-line-chart" class="w-full h-48 relative mt-4">
+    <svg class="w-full h-full overflow-visible" viewBox="0 0 500 150" preserveAspectRatio="none">
+      <line x1="0" y1="150" x2="500" y2="150" stroke="#e2e8f0" stroke-width="1"></line>
+      <line x1="0" y1="75" x2="500" y2="75" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4 4"></line>
+      <polyline id="line-in" points="" fill="none" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+      <g id="circles-in"></g>
+      <polyline id="line-out" points="" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+      <g id="circles-out"></g>
+    </svg>
+    <div id="months" class="flex justify-between text-xs text-slate-400 mt-2"></div>
+    <div class="flex justify-center gap-4 mt-2 text-xs font-medium">
+      <div class="flex items-center gap-1"><div class="w-2 h-2 rounded-full bg-blue-500"></div>입고량</div>
+      <div class="flex items-center gap-1"><div class="w-2 h-2 rounded-full bg-red-500"></div>출고량</div>
+    </div>
+  </div>
+
+  <!-- Donut Chart Component -->
+  <div id="donut-chart" class="relative w-32 h-32 flex items-center justify-center">
+    <svg class="transform -rotate-90 w-full h-full">
+      <circle cx="64" cy="64" r="30" stroke="currentColor" stroke-width="8" fill="transparent" class="text-slate-100"></circle>
+      <circle id="donut-progress" cx="64" cy="64" r="30" stroke="currentColor" stroke-width="8" fill="transparent" stroke-linecap="round"></circle>
+    </svg>
+    <div class="absolute flex flex-col items-center">
+      <span id="donut-percentage" class="text-xl font-bold text-slate-800"></span>
+    </div>
+  </div>
+
+  <!-- Input Field Component -->
+  <div id="input-field" class="flex flex-col gap-1.5">
+    <label class="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1">
+      <span id="input-label"></span>
+      <span id="required-indicator" class="text-red-500" style="display: none;">*</span>
+    </label>
+    <input
+      id="input-element"
+      type="text"
+      class="px-3 py-2.5 rounded-lg border text-sm transition-all outline-none"
+      placeholder=""
+    >
+  </div>
+
+  <!-- Nav Item Component -->
+  <button id="nav-item" class="w-full flex items-center gap-3 px-3 py-3 rounded-lg transition-colors duration-200">
+    <span id="nav-icon"></span>
+    <span id="nav-label" class="text-sm font-medium whitespace-nowrap"></span>
+  </button>
+
+  <script>
+    // Simple Line Chart Logic
+    function renderSimpleLineChart(data) {
+      const maxVal = Math.max(...data.map(d => Math.max(d.in, d.out)));
+      const pointsIn = data.map((d, i) => `${i * 100},${150 - (d.in / maxVal) * 120}`).join(' ');
+      const pointsOut = data.map((d, i) => `${i * 100},${150 - (d.out / maxVal) * 120}`).join(' ');
+
+      document.getElementById('line-in').setAttribute('points', pointsIn);
+      document.getElementById('line-out').setAttribute('points', pointsOut);
+
+      const circlesIn = document.getElementById('circles-in');
+      const circlesOut = document.getElementById('circles-out');
+      circlesIn.innerHTML = '';
+      circlesOut.innerHTML = '';
+
+      data.forEach((d, i) => {
+        const circleIn = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circleIn.setAttribute('cx', i * 100);
+        circleIn.setAttribute('cy', 150 - (d.in / maxVal) * 120);
+        circleIn.setAttribute('r', 4);
+        circleIn.setAttribute('fill', '#3b82f6');
+        circleIn.classList.add('hover:r-6', 'transition-all');
+        circlesIn.appendChild(circleIn);
+
+        const circleOut = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circleOut.setAttribute('cx', i * 100);
+        circleOut.setAttribute('cy', 150 - (d.out / maxVal) * 120);
+        circleOut.setAttribute('r', 4);
+        circleOut.setAttribute('fill', '#ef4444');
+        circleOut.classList.add('hover:r-6', 'transition-all');
+        circlesOut.appendChild(circleOut);
+      });
+
+      const monthsDiv = document.getElementById('months');
+      monthsDiv.innerHTML = data.map(d => `<span>${d.month}</span>`).join('');
+    }
+
+    // Donut Chart Logic
+    function renderDonutChart(percentage, color = "text-blue-600") {
+      const radius = 30;
+      const circumference = 2 * Math.PI * radius;
+      const strokeDashoffset = circumference - (percentage / 100) * circumference;
+
+      const donutProgress = document.getElementById('donut-progress');
+      donutProgress.setAttribute('stroke-dasharray', circumference);
+      donutProgress.setAttribute('stroke-dashoffset', strokeDashoffset);
+      donutProgress.className = `${color} transition-all duration-1000 ease-out`;
+
+      document.getElementById('donut-percentage').textContent = `${percentage}%`;
+    }
+
+    // Input Field Logic
+    function renderInputField({ label, name, value, type = "text", readOnly = false, placeholder = "", required = false, align = "left" }) {
+      document.getElementById('input-label').textContent = label;
+      document.getElementById('required-indicator').style.display = required ? 'inline' : 'none';
+
+      const input = document.getElementById('input-element');
+      input.type = type;
+      input.name = name;
+      input.value = value;
+      input.readOnly = readOnly;
+      input.placeholder = placeholder;
+
+      // Update classes based on readOnly state
+      input.className = `px-3 py-2.5 rounded-lg border text-sm transition-all outline-none text-${align}`;
+      if (readOnly) {
+        input.classList.add('bg-slate-100', 'text-slate-500', 'border-slate-200', 'cursor-not-allowed');
+        input.classList.remove('bg-white', 'border-slate-300', 'text-slate-900', 'focus:border-blue-500', 'focus:ring-2', 'focus:ring-blue-100', 'placeholder-slate-400');
+      } else {
+        input.classList.add('bg-white', 'border-slate-300', 'text-slate-900', 'focus:border-blue-500', 'focus:ring-2', 'focus:ring-blue-100', 'placeholder-slate-400');
+        input.classList.remove('bg-slate-100', 'text-slate-500', 'border-slate-200', 'cursor-not-allowed');
+      }
+    }
+
+    // Nav Item Logic
+    function renderNavItem({ icon, label, isOpen, active, onClick }) {
+      const navItem = document.getElementById('nav-item');
+      navItem.onclick = onClick;
+
+      // Update classes based on active state
+      navItem.className = `w-full flex items-center gap-3 px-3 py-3 rounded-lg transition-colors duration-200`;
+      if (active) {
+        navItem.classList.add('bg-blue-600', 'text-white', 'shadow-md');
+        navItem.classList.remove('text-slate-300', 'hover:bg-slate-800', 'hover:text-white');
+      } else {
+        navItem.classList.add('text-slate-300', 'hover:bg-slate-800', 'hover:text-white');
+        navItem.classList.remove('bg-blue-600', 'text-white', 'shadow-md');
+      }
+
+      // Set icon and label visibility
+      document.getElementById('nav-icon').innerHTML = icon;
+      document.getElementById('nav-label').textContent = label;
+      document.getElementById('nav-label').style.display = isOpen ? 'inline' : 'none';
+    }
+
+    // Example usage
+    document.addEventListener('DOMContentLoaded', function() {
+      // Example data for line chart
+      const lineChartData = [
+        { month: 'Jan', in: 45, out: 30 },
+        { month: 'Feb', in: 55, out: 40 },
+        { month: 'Mar', in: 65, out: 50 },
+        { month: 'Apr', in: 75, out: 60 },
+        { month: 'May', in: 85, out: 70 }
+      ];
+      renderSimpleLineChart(lineChartData);
+
+      // Example data for donut chart
+      renderDonutChart(75);
+
+      // Example data for input field
+      renderInputField({
+        label: 'Username',
+        name: 'username',
+        value: '',
+        type: 'text',
+        placeholder: 'Enter your username',
+        required: true
+      });
+
+      // Example data for nav item
+      renderNavItem({
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>',
+        label: 'Dashboard',
+        isOpen: true,
+        active: true,
+        onClick: () => console.log('Dashboard clicked')
+      });
+    });
+  </script>
+</body>
+</html>
+```
+
+This HTML code includes:
+
+1. The same visual components as your React code (SimpleLineChart, DonutChart, InputField, NavItem)
+2. JavaScript functions that replicate the logic from your React components
+3. CSS classes that match the Tailwind CSS classes used in your React components
+4. Example usage in the DOMContentLoaded event listener
+
+Note that you'll need to:
+- Replace the Lucide icons with actual SVG icons or use a CDN
+- Adjust the styling as needed for your specific use case
+- Implement any additional functionality that was in your original React components
